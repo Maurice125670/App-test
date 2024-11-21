@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ChargementPageRoutingModule } from './chargement-routing.module';
+import { MessagePersoPageRoutingModule } from './message-perso-routing.module';
 
-import { ChargementPage } from './chargement.page';
+import { MessagePersoPage } from './message-perso.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ChargementPageRoutingModule
+    MessagePersoPageRoutingModule
   ],
-  declarations: [ChargementPage]
+  declarations: [MessagePersoPage]
 })
-export class ChargementPageModule {}
+export class MessagePersoPageModule {}

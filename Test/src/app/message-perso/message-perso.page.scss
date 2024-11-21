@@ -1,0 +1,73 @@
+/* Conteneur principal */
+.message-container {
+    height: 100%; /* Utilise toute la hauteur de l'écran */
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Aligne les éléments verticalement */
+    justify-content: space-between; /* Centre les éléments verticalement */
+    align-items: center; /* Centre horizontalement */
+    padding: 20px;
+    position: relative; /* Nécessaire pour positionner "HEY" */
+  }
+  
+  /* Texte principal */
+  .welcome-message {
+    width: 100%; /* Occupe toute la largeur du conteneur */
+    text-align: left; /* Aligne le texte à gauche */
+    font-size: 5.5rem; /* Taille de base pour le texte */
+    font-weight: 1000 ;
+    line-height: 1; /* Réduit l'espacement vertical */
+  }
+  
+  /* Style pour "HEY" */
+  .hey {
+    display: block;
+    font-size: inherit; /* La taille sera ajustée dynamiquement */
+    line-height: 1;
+   
+  }
+  
+  /* Style pour "NASSIM," */
+  .name {
+    display: block;
+    font-size: inherit; /* La taille sera ajustée dynamiquement */
+    line-height: 1;
+ 
+  }
+  
+  /* Phrase d'accroche */
+  .random-phrase {
+    font-size: 1.5rem; /* Taille de la phrase */
+    font-weight: bold ;
+    margin: 20px 0;
+  }
+  
+  /* Boutons d'action */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+    margin-top: 40px;
+  }
+  
+  .action-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 25px;
+  }
+  
+  .action-button.underline {
+    background: none;
+    color: black;
+    text-decoration: underline;
+  }
+  
+  .action-button.filled {
+    background-color: black;
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
