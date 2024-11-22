@@ -1,0 +1,34 @@
+<ion-content>
+  <!-- Conteneur principal -->
+  <div class="question-container">
+
+    <!-- Numéro et total des questions -->
+    <div class="question-progress">
+      <h1>3/<span>4</span></h1>
+    </div>
+
+    <!-- Titre de la question -->
+    <div class="question-title">
+      <p>Comment évaluez-vous votre niveau de stress cette semaine ?</p>
+    </div>
+
+    <!-- Slider pour le niveau de stress -->
+    <div class="slider-container">
+      <ion-range min="1" max="5" step="1" snaps="true" [(ngModel)]="stressLevel" (ionChange)="updateStressLevel()">
+        <ion-label slot="start"></ion-label>
+        <ion-label slot="end"></ion-label>
+      </ion-range>
+    </div>
+
+    <!-- Affichage de la valeur sélectionnée -->
+    <div class="stress-value">
+      <p>{{ stressLevel }}</p>
+    </div>
+
+    <!-- Bouton Go -->
+    <div class="next-button-container">
+      <button class="next-button" (click)="goToNextQuestion()">Go !</button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,27 @@
+<ion-content>
+  <!-- Conteneur principal -->
+  <div class="thank-you-container">
+
+    <!-- Message de remerciement -->
+    <div class="thank-you-message">
+      <p>C'est important pour nous de savoir comment tu vas.</p>
+      <p><strong>Merci !</strong></p>
+    </div>
+
+    <!-- Bouton pour ajouter une note -->
+    <div class="add-note-container">
+      <button class="add-note-button" (click)="toggleNote()">J’aimerais ajouter une note</button>
+    </div>
+
+    <!-- Zone de texte pour ajouter une note -->
+    <div class="note-container" *ngIf="showNote">
+      <ion-textarea placeholder="Écrivez votre note ici..." [(ngModel)]="noteText"></ion-textarea>
+    </div>
+
+    <!-- Bouton pour quitter -->
+    <div class="exit-button-container">
+      <button class="exit-button" (click)="exit()">Ciao !</button>
+    </div>
+
+  </div>
+</ion-content>
