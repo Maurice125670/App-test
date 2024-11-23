@@ -6,7 +6,7 @@ const routes: Routes = [
     path: '',
     redirectTo: 'loading',
     pathMatch: 'full'
-  },
+  },  
   {
     path: 'loading',
     loadChildren: () => import('./loading/loading.module').then(m => m.LoadingPageModule)
@@ -18,7 +18,8 @@ const routes: Routes = [
   {
     path: 'message-perso',
     loadChildren: () => import('./message-perso/message-perso.module').then( m => m.MessagePersoPageModule)
-  },  {
+  },
+  {
     path: 'question1',
     loadChildren: () => import('./question1/question1.module').then( m => m.Question1PageModule)
   },
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: 'thank-you',
     loadChildren: () => import('./thank-you/thank-you.module').then( m => m.ThankYouPageModule)
+  },
+  {
+    path: 'mood-input',
+    loadChildren: () => import('./pages/mood-input/mood-input.module').then( m => m.MoodInputPageModule)
   }
 
 ];
