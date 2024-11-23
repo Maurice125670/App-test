@@ -1,0 +1,21 @@
+<div class="fiche-recommendation">
+  <!-- Affiche le titre de la fiche -->
+  <h2>{{ titre }}</h2>
+
+  <!-- Affiche la description de la fiche -->
+  <p>{{ description }}</p>
+
+  <!-- Affiche l'action en cours si elle existe -->
+  <div *ngIf="currentAction; else completed">
+    <h3>Action actuelle :</h3>
+    <!-- L'action à effectuer -->
+    <p>{{ currentAction }}</p>
+    <!-- Bouton pour marquer l'action comme terminée -->
+    <button (click)="terminerAction()">Terminer cette action</button>
+  </div>
+
+  <!-- Si toutes les actions sont terminées, on affiche un message de fin -->
+  <ng-template #completed>
+    <p>Toutes les actions ont été complétées ! 🎉</p>
+  </ng-template>
+</div>

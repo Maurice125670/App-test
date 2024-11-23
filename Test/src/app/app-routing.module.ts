@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'mood-input',
     loadChildren: () => import('./pages/mood-input/mood-input.module').then( m => m.MoodInputPageModule)
+  },  {
+    path: 'test-de-reco',
+    loadChildren: () => import('./test-de-reco/test-de-reco.module').then( m => m.TestDeRecoPageModule)
   }
+
 
 ];
 
