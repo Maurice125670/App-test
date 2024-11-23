@@ -1,31 +1,107 @@
 .fiche-recommendation {
-    border: 1px solid #ccc; // Ajoute une bordure autour de la fiche
-    border-radius: 8px; // Arrondit les coins
-    padding: 16px; // Ajoute de l'espace à l'intérieur de la fiche
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Ajoute une ombre légère pour un effet moderne
+    background-color: #121212; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    padding: 16px;
+    border-radius: 8px;
   
     h2 {
-      margin: 0 0 8px; // Ajoute un espace sous le titre
-      color: #333; // Change la couleur du titre
+      text-align: center;
+      margin-bottom: 16px;
+      color: #4caf50;
     }
   
-    h3 {
-      margin-top: 16px; // Ajoute un espace au-dessus du sous-titre
-      color: #4caf50; // Met le sous-titre en vert pour indiquer une progression
-    }
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      max-width: 500px;
   
-    button {
-      margin-top: 12px; // Ajoute un espace au-dessus du bouton
-      padding: 10px 16px; // Taille et espacement à l'intérieur du bouton
-      background-color: #4caf50; // Couleur de fond du bouton
-      color: white; // Couleur du texte sur le bouton
-      border: none; // Supprime les bordures par défaut
-      border-radius: 4px; // Ajoute des coins arrondis au bouton
-      cursor: pointer; // Change le curseur en "main" sur le bouton
-  
-      &:hover {
-        background-color: #45a049; // Change légèrement la couleur au survol
+      .arrow {
+        position: absolute;
+        left: 20px;
+        width: 20px;
+        height: 20px;
+        background-color: #4caf50;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        transition: top 0.5s ease-in-out; /* Animation de la flèche */
       }
+  
+      .timeline-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        position: relative;
+  
+        .step-number {
+          font-size: 18px;
+          background-color: #4caf50;
+          color: #ffffff;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-right: 16px;
+        }
+  
+        .step-content {
+          background-color: #1e1e1e;
+          padding: 16px;
+          border-radius: 8px;
+          flex: 1;
+  
+          .step-text {
+            margin-bottom: 8px;
+          }
+  
+          img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 8px;
+          }
+  
+          video {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 8px;
+          }
+  
+          .timer {
+            font-size: 14px;
+            color: #ccc;
+          }
+  
+          button {
+            padding: 8px 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+  
+            &:hover {
+              background-color: #45a049;
+            }
+          }
+        }
+  
+        &.completed .step-number {
+          background-color: #4caf50;
+        }
+  
+        &.current .step-number {
+          background-color: #ffa726; /* Orange pour l'étape active */
+        }
+      }
+    }
+  
+    .completion-message {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 18px;
+      color: #4caf50;
     }
   }
   

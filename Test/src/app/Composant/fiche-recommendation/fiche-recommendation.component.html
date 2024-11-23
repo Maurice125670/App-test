@@ -1,21 +1,46 @@
 <div class="fiche-recommendation">
-  <!-- Affiche le titre de la fiche -->
   <h2>{{ titre }}</h2>
 
-  <!-- Affiche la description de la fiche -->
-  <p>{{ description }}</p>
+  <!-- File d'Ariane -->
+  <div class="timeline">
+    <div
+      class="arrow"
+      [style.top]="currentStepIndex * 70 + 'px'"
+    ></div>
+    <div
+      *ngFor="let step of recommandations; let i = index"
+      class="timeline-item"
+      [class.current]="i === currentStepIndex"
+      [class.completed]="i < currentStepIndex"
+    >
+      <!-- Numéro de l'étape -->
+      <div class="step-number">{{ i + 1 }}</div>
 
-  <!-- Affiche l'action en cours si elle existe -->
-  <div *ngIf="currentAction; else completed">
-    <h3>Action actuelle :</h3>
-    <!-- L'action à effectuer -->
-    <p>{{ currentAction }}</p>
-    <!-- Bouton pour marquer l'action comme terminée -->
-    <button (click)="terminerAction()">Terminer cette action</button>
+      <!-- Contenu affiché uniquement pour l'étape courante -->
+      <div class="step-content" *ngIf="i <= currentStepIndex">
+        <div class="step-text">{{ step.text }}</div>
+
+        <!-- Image -->
+        <img *ngIf="step.image" [src]="step.image" alt="Image étape {{ i + 1 }}" />
+
+        <!-- Vidéo -->
+        <video *ngIf="step.video" controls>
+          <source [src]="step.video" type="video/mp4" />
+        </video>
+
+        <!-- Minuteur -->
+        <div *ngIf="step.timer" class="timer">
+          Minuteur : {{ step.timer }} secondes
+        </div>
+
+        <!-- Bouton pour valider l'étape -->
+        <button *ngIf="i === currentStepIndex" (click)="nextStep()">Valider l'étape</button>
+      </div>
+    </div>
   </div>
 
-  <!-- Si toutes les actions sont terminées, on affiche un message de fin -->
-  <ng-template #completed>
-    <p>Toutes les actions ont été complétées ! 🎉</p>
-  </ng-template>
+  <!-- Message de fin -->
+  <div *ngIf="isCompleted" class="completion-message">
+    🎉 Toutes les étapes sont complétées !
+  </div>
 </div>
