@@ -6,6 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FirebaseService } from './services/firebase.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FirebaseService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajout du schema pour les Web Components

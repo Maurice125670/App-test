@@ -1,6 +1,8 @@
 // src/app/pages/mood-input/mood-input.page.ts
 
 import { Component } from '@angular/core';
+import { FirebaseService } from '../../services/firebase.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mood-input',
@@ -9,16 +11,19 @@ import { Component } from '@angular/core';
 })
 export class MoodInputPage {
   // Hardcoded user data
-  userId = 'user1';
-  userName = 'Antoine Renaud';
-  userEmail = 'antoine.renaud@example.com';
+  userId = '123sa';
+  userName = 'Salma Renaud';
+  userEmail = 'salma.salma@example.com';
   userDepartment = 'Informatique';
 
   emotionLevel: number = 0;
   feelingsOptions: string[] = [];
   selectedFeelings: { [key: string]: boolean } = {};
 
-  constructor() {}
+  constructor(
+    private firebaseService: FirebaseService,
+    private router: Router
+  ) {}
 
   onEmotionLevelChange() {
     // Reset feelings when emotion level changes
@@ -49,31 +54,40 @@ export class MoodInputPage {
     }
   }
 
-  submitMood() {
-    // Get selected feelings
+  async submitMood() {
     const feelings = Object.keys(this.selectedFeelings).filter(
       (feeling) => this.selectedFeelings[feeling]
     );
 
-    // Prepare data to display or process
-    const data = {
-      userId: this.userId,
-      name: this.userName,
-      email: this.userEmail,
-      department: this.userDepartment,
-      emotion_level: this.emotionLevel,
-      feelings: feelings,
-      date: new Date().toISOString(),
-    };
+    try {
+      // Save user data
+      await this.firebaseService.saveUserData({
+        userId: this.userId,
+        name: this.userName,
+        email: this.userEmail,
+        department: this.userDepartment
+      });
 
-    // For now, we will just log the data
-    console.log('Mood Data:', data);
+      // Save mood data
+      await this.firebaseService.saveMoodData({
+        userId: this.userId,
+        emotion_level: this.emotionLevel,
+        feelings: feelings,
+        date: new Date().toISOString()
+      });
 
-    alert('Votre humeur a été enregistrée. Merci !');
+      alert('Votre humeur a été enregistrée. Merci !');
+      
+      // Reset form
+      this.emotionLevel = 0;
+      this.feelingsOptions = [];
+      this.selectedFeelings = {};
 
-    // Optionally reset the form
-    this.emotionLevel = 0;
-    this.feelingsOptions = [];
-    this.selectedFeelings = {};
+      // Optionally navigate to a thank you page
+      this.router.navigate(['/thank-you']);
+    } catch (error) {
+      console.error('Error submitting mood:', error);
+      alert('Une erreur est survenue. Veuillez réessayer.');
+    }
   }
 }
