@@ -1,7 +1,9 @@
 // src/app/pages/mood-input/mood-input.page.ts
 
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { FirebaseService } from '../../services/firebase.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,12 +11,12 @@ import { Router } from '@angular/router';
   templateUrl: './mood-input.page.html',
   styleUrls: ['./mood-input.page.scss'],
 })
-export class MoodInputPage {
-  // Hardcoded user data
-  userId = '123sa';
-  userName = 'Salma Renaud';
-  userEmail = 'salma.salma@example.com';
-  userDepartment = 'Informatique';
+export class MoodInputPage implements OnInit, OnDestroy {
+  userId: string | null = null;
+  userName: string = '';
+  userEmail: string = '';
+  userDepartment: string = '';
+  private userSubscription: Subscription | undefined;
 
   emotionLevel: number = 0;
   feelingsOptions: string[] = [];
@@ -22,8 +24,49 @@ export class MoodInputPage {
 
   constructor(
     private firebaseService: FirebaseService,
+    private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+    this.feelingsOptions = ['Neutre', 'Calme', 'Fatigué(e)', 'Indifférent(e)'];
+  }
+
+  ngOnInit() {
+    this.userSubscription = this.authService.getCurrentUser().subscribe({
+      next: async (currentUser) => {
+        if (!currentUser) {
+          this.router.navigate(['/login']);
+          return;
+        }
+
+        this.userId = currentUser.uid;
+        this.userName = currentUser.firstName;
+        this.userEmail = currentUser.email;
+        this.userDepartment = currentUser.department;
+
+        try {
+          const hasEntry = await this.firebaseService.hasMoodEntryForToday(this.userId);
+          if (hasEntry) {
+            alert('Vous avez déjà saisi votre humeur aujourd\'hui.');
+            this.router.navigate(['/thank-you']);
+            return;
+          }
+        } catch (error) {
+          console.error('Error checking mood entry:', error);
+          alert('Une erreur est survenue lors de la vérification de vos données.');
+        }
+      },
+      error: (error) => {
+        console.error('Error loading user data:', error);
+        this.router.navigate(['/login']);
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.userSubscription) {
+      this.userSubscription.unsubscribe();
+    }
+  }
 
   onEmotionLevelChange() {
     // Reset feelings when emotion level changes
@@ -55,6 +98,13 @@ export class MoodInputPage {
   }
 
   async submitMood() {
+    if (!this.userId) {
+      console.error('No user ID found');
+      alert('Une erreur est survenue. Veuillez vous reconnecter.');
+      this.router.navigate(['/login']);
+      return;
+    }
+
     const feelings = Object.keys(this.selectedFeelings).filter(
       (feeling) => this.selectedFeelings[feeling]
     );
@@ -63,7 +113,7 @@ export class MoodInputPage {
       // Save user data
       await this.firebaseService.saveUserData({
         userId: this.userId,
-        name: this.userName,
+        firstName: this.userName,
         email: this.userEmail,
         department: this.userDepartment
       });
@@ -83,8 +133,8 @@ export class MoodInputPage {
       this.feelingsOptions = [];
       this.selectedFeelings = {};
 
-      // Optionally navigate to a thank you page
-      this.router.navigate(['/thank-you']);
+      // Navigate to home page instead of thank-you
+      this.router.navigate(['/home']);
     } catch (error) {
       console.error('Error submitting mood:', error);
       alert('Une erreur est survenue. Veuillez réessayer.');

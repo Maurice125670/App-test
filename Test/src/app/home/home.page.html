@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Welcome back, {{ firstName }}!</h2>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Your Mood Streak</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      You have entered your mood for {{ moodStreak }} consecutive days.
+    </ion-card-content>
+  </ion-card>
+
+  <h2>Évolution de l'humeur</h2>
+  <canvas id="moodChart"></canvas>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Émotions des 7 derniers jours</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas id="feelingsChart"></canvas>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- FAB button for all devices -->
+  <ion-fab *ngIf="canAddMood" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="navigateToMoodInput()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
