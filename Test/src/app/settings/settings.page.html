@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Paramètres</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="settings-container">
+    <!-- Profil -->
+    <div class="settings-section">
+      <div class="profile-header">
+        <div class="avatar-container">
+          <img [src]="profileImage || 'assets/default-avatar.png'" alt="Profile" />
+          <ion-button fill="clear" class="change-photo-btn">
+            <ion-icon name="camera"></ion-icon>
+          </ion-button>
+        </div>
+        <h2>{{userName || 'Utilisateur'}}</h2>
+        <p>{{userEmail || 'email@example.com'}}</p>
+      </div>
+    </div>
+
+    <!-- Préférences d'application -->
+    <div class="settings-section">
+      <h3>Préférences d'application</h3>
+      
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="moon" slot="start"></ion-icon>
+        <ion-label>Mode sombre</ion-label>
+        <ion-toggle [(ngModel)]="darkMode" slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="notifications" slot="start"></ion-icon>
+        <ion-label>Notifications</ion-label>
+        <ion-toggle [(ngModel)]="notifications" slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="language" slot="start"></ion-icon>
+        <ion-label>Langue</ion-label>
+        <ion-select [(ngModel)]="language" interface="popover" slot="end">
+          <ion-select-option value="fr">Français</ion-select-option>
+          <ion-select-option value="en">English</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Suivi d'humeur -->
+    <div class="settings-section">
+      <h3>Suivi d'humeur</h3>
+      
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="time" slot="start"></ion-icon>
+        <ion-label>Rappel quotidien</ion-label>
+        <ion-toggle [(ngModel)]="dailyReminder" slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none" class="setting-item" *ngIf="dailyReminder">
+        <ion-icon name="alarm" slot="start"></ion-icon>
+        <ion-label>Heure du rappel</ion-label>
+        <ion-datetime display-format="HH:mm" [(ngModel)]="reminderTime" slot="end"></ion-datetime>
+      </ion-item>
+
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="analytics" slot="start"></ion-icon>
+        <ion-label>Période d'analyse</ion-label>
+        <ion-select [(ngModel)]="analysisPeriod" interface="popover" slot="end">
+          <ion-select-option value="week">7 jours</ion-select-option>
+          <ion-select-option value="month">30 jours</ion-select-option>
+          <ion-select-option value="year">365 jours</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Confidentialité -->
+    <div class="settings-section">
+      <h3>Confidentialité</h3>
+      
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="lock-closed" slot="start"></ion-icon>
+        <ion-label>Verrouillage par code</ion-label>
+        <ion-toggle [(ngModel)]="appLock" slot="end"></ion-toggle>
+      </ion-item>
+
+      <ion-item lines="none" class="setting-item">
+        <ion-icon name="cloud-upload" slot="start"></ion-icon>
+        <ion-label>Sauvegarde auto</ion-label>
+        <ion-toggle [(ngModel)]="autoBackup" slot="end"></ion-toggle>
+      </ion-item>
+    </div>
+
+    <!-- Actions -->
+    <div class="settings-section">
+      <ion-button expand="block" color="primary" class="action-button">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Sauvegarder les modifications
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" color="medium" class="action-button">
+        <ion-icon name="help-circle" slot="start"></ion-icon>
+        Aide et support
+      </ion-button>
+
+      <ion-button expand="block" color="danger" class="action-button">
+        <ion-icon name="log-out" slot="start"></ion-icon>
+        Déconnexion
+      </ion-button>
+    </div>
+  </div>
+</ion-content>
+

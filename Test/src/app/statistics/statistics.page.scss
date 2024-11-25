@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+ion-content {
+  --background: #16adff;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.scrollable-content {
+  padding: 16px;
+  padding-bottom: 80px;
+}
+
+ion-card {
+  background: rgb(146, 246, 255);
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+}
+
+ion-card-header {
+  background: #244a6d;
+  border-radius: 15px 15px 0 0;
+}
+
+ion-card-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+ion-card-content {
+  color: #005eff;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 16px;
+}
+
+canvas {
+  margin: 16px 0;
+  width: 100% !important;
+  height: 300px !important;
+}
+
+ion-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
