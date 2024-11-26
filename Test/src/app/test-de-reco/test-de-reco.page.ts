@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./test-de-reco.page.scss'],
 })
 export class TestDeRecoPage {
-  titre = "tristesse"; // Déclare le titre avec une apostrophe
+  titre = "tristesse"; 
   recommandations = [
     { text: 'Lire l\'introduction.', timer: 10 },
     { text: 'Regarder une vidéo.', video: 'assets/videos/exemple.mp4' },
