@@ -6,6 +6,9 @@
     align-items: center;
     height: 100%;
     padding: 20px;
+    background-color: #f8f8f8;
+    
+    
   }
   
   /* Numéro et progression */
@@ -13,6 +16,9 @@
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
+    color: rgb(0, 0, 0);
+    
+  
   }
   
   .question-progress span {
@@ -35,6 +41,7 @@
   .question-title p {
     font-size: 1.5rem;
     font-weight: bold;
+    color: black;
   }
   
   /* Liste des émotions */
@@ -55,6 +62,7 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    color: black;
   }
   
   .emotion-button.selected {

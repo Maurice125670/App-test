@@ -1,0 +1,366 @@
+.custom-text {
+  color: #244A6D !important;
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  ion-content {
+    --background: #16adff;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    flex: 1;
+    overflow-y: scroll;
+
+    .scrollable-content {
+      padding: 16px;
+      padding-bottom: 80px;
+    }
+
+    .profile-header {
+      text-align: center;
+      margin-bottom: 24px;
+      
+      h2 {
+        color: #ffffff;
+        margin: 16px 0 8px;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      
+      p {
+        color: #e6f3ff;
+        margin: 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      
+      ion-avatar {
+        width: 100%;
+        height: 100%;
+        border: 4px solid #ffffff;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      .change-photo-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        --padding-start: 8px;
+        --padding-end: 8px;
+        
+        ion-icon {
+          font-size: 20px;
+          color: #244A6D;
+        }
+      }
+    }
+
+    ion-list {
+      background: transparent;
+      padding: 0;
+      margin-bottom: 24px;
+    }
+
+    ion-item-group {
+      background: rgb(255, 146, 146);
+      border-radius: 15px;
+      margin-bottom: 16px;
+      overflow: hidden;
+
+      ion-item {
+        --color: #244A6D;
+        
+        ion-label {
+          color: #244A6D;
+        }
+
+        ion-toggle {
+          --background: #e6f3ff;
+          --background-checked: #244A6D;
+          --handle-background: white;
+          --handle-background-checked: white;
+        }
+
+        ion-select {
+          --color: #244A6D;
+          color: #244A6D;
+          
+          ion-select-option {
+            color: #244A6D;
+          }
+        }
+      }
+    }
+
+    ion-item-divider {
+      --background: #244A6D;
+      --color: #ffffff;
+      --padding-start: 16px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    ion-item {
+      --background: transparent;
+      --border-color: rgba(0, 0, 0, 0.1);
+      --padding-start: 16px;
+      --padding-end: 16px;
+      --inner-padding-end: 16px;
+      
+      &:last-child {
+        --border-width: 0;
+      }
+      
+      .custom-text {
+        color: #244A6D !important;
+      }
+      
+      ion-label {
+        @extend .custom-text;
+      }
+
+      ion-input {
+        @extend .custom-text;
+      }
+
+      ion-textarea {
+        @extend .custom-text;
+      }
+
+      ion-select {
+        .custom-text;
+      }
+
+      ion-datetime {
+        .custom-text;
+      }
+
+      ion-toggle {
+        --background: #e6f3ff;
+        --background-checked: #244A6D;
+        --handle-background: white;
+        --handle-background-checked: white;
+      }
+    }
+
+    ion-input, ion-textarea {
+      --background: rgba(255, 255, 255, 0.5);
+      --padding-start: 16px;
+      --padding-end: 16px;
+      border-radius: 8px;
+      margin-top: 4px;
+    }
+
+    // Styles spécifiques pour les items dans la section Preferences
+    ion-item-group {
+      ion-item {
+        --ion-text-color: #244A6D !important;
+        --ion-item-color: #244A6D !important;
+        
+        ion-label {
+          --ion-text-color: #244A6D !important;
+          --ion-color-base: #244A6D !important;
+          color: #244A6D !important;
+        }
+      }
+    }
+
+    // Override global pour les labels
+    ::ng-deep ion-label {
+      --ion-text-color: #244A6D !important;
+      --ion-color-base: #244A6D !important;
+      color: #244A6D !important;
+    }
+
+    // Override spécifique pour les selects
+    ::ng-deep ion-select {
+      --ion-text-color: #244A6D !important;
+      --ion-color-base: #244A6D !important;
+      color: #244A6D !important;
+    }
+
+    // Override pour les options de select
+    ::ng-deep ion-select-option {
+      --ion-text-color: #244A6D !important;
+      --ion-color-base: #244A6D !important;
+      color: #244A6D !important;
+    }
+  }
+
+  .action-buttons {
+    ion-button {
+      margin-bottom: 12px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ion-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+ion-header {
+  ion-toolbar {
+    --background: #244A6D;
+    --color: white;
+  }
+}
+
+ion-content {
+  --background: #f4f5f8;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+}
+
+.settings-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.settings-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    color: #244A6D;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+  }
+
+  .setting-item {
+    --background: #f8f9fa;
+    --border-radius: 8px;
+    margin-bottom: 8px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    ion-icon {
+      color: #244A6D;
+      font-size: 20px;
+    }
+
+    ion-label {
+      color: #244A6D;
+      font-weight: 500;
+    }
+
+    ion-toggle {
+      --background: #e0e0e0;
+      --background-checked: #244A6D;
+      --handle-background: white;
+      --handle-background-checked: white;
+    }
+
+    ion-select {
+      color: #244A6D;
+      font-weight: 500;
+      max-width: 150px;
+      
+      &::part(text) {
+        color: #244A6D;
+      }
+    }
+
+    ion-datetime {
+      color: #244A6D;
+      font-weight: 500;
+    }
+  }
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 8px;
+
+  .avatar-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #244A6D;
+    }
+
+    .change-photo-btn {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      margin: 0;
+      --padding-start: 8px;
+      --padding-end: 8px;
+      --border-radius: 50%;
+      
+      ion-icon {
+        font-size: 18px;
+        color: #244A6D;
+      }
+    }
+  }
+
+  h2 {
+    color: #244A6D;
+    font-size: 1.5rem;
+    margin: 0 0 4px 0;
+    font-weight: 600;
+  }
+
+  p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+.action-button {
+  margin-bottom: 12px;
+  --border-radius: 8px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &[color="primary"] {
+    --background: #244A6D;
+  }
+
+  &[color="danger"] {
+    --background: #dc3545;
+  }
+
+  &[color="medium"] {
+    --color: #244A6D;
+    --border-color: #244A6D;
+  }
+}
