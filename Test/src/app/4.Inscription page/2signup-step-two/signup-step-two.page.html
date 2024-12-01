@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/signup-step-one" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+  <div class="content-container">
+    <h2 class="title">Dites-nous en plus sur vous</h2>
+
+    <!-- Champ Nom -->
+    <ion-item>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input 
+        type="text" 
+        placeholder="Votre nom complet" 
+        [(ngModel)]="lastName" 
+        name="lastName">
+      </ion-input>
+    </ion-item>
+
+    <!-- Champ Prénom -->
+    <ion-item>
+      <ion-icon name="person-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Prénom</ion-label>
+      <ion-input 
+        type="text" 
+        placeholder="Votre prénom complet" 
+        [(ngModel)]="firstName" 
+        name="firstName">
+      </ion-input>
+    </ion-item>
+
+    <!-- Champ Date de Naissance -->
+    <div class="birthdate-container">
+      <ion-label>Date de naissance</ion-label>
+      <div class="date-inputs">
+        <!-- Jour -->
+        <ion-item>
+          <ion-label position="floating">Jour</ion-label>
+          <ion-select [(ngModel)]="birthDay" name="birthDay" interface="popover">
+            <ion-select-option *ngFor="let day of days" [value]="day < 10 ? '0' + day : day.toString()">
+              {{day}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Mois -->
+        <ion-item>
+          <ion-label position="floating">Mois</ion-label>
+          <ion-select [(ngModel)]="birthMonth" name="birthMonth" interface="popover">
+            <ion-select-option *ngFor="let month of months" [value]="month.value">
+              {{month.text}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <!-- Année -->
+        <ion-item>
+          <ion-label position="floating">Année</ion-label>
+          <ion-select [(ngModel)]="birthYear" name="birthYear" interface="popover">
+            <ion-select-option *ngFor="let year of years" [value]="year.toString()">
+              {{year}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </div>
+
+    <!-- Champ Sexe -->
+    <div class="gender-container">
+      <ion-label>Sexe</ion-label>
+      <div class="gender-buttons">
+        <ion-button 
+          expand="block"
+          color="primary" 
+          [fill]="gender === 'female' ? 'solid' : 'outline'" 
+          (click)="selectGender('female')">
+          <ion-icon name="female-outline" slot="start"></ion-icon>
+          Féminin
+        </ion-button>
+        <ion-button 
+          expand="block"
+          color="primary" 
+          [fill]="gender === 'male' ? 'solid' : 'outline'" 
+          (click)="selectGender('male')">
+          <ion-icon name="male-outline" slot="start"></ion-icon>
+          Masculin
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Bouton Continuer -->
+    <ion-button 
+      expand="block" 
+      color="tertiary" 
+      (click)="continue()" 
+      [disabled]="!isFormValid()">
+      Continuer
+    </ion-button>
+  </div>
+</ion-content>

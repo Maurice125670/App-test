@@ -1,40 +1,62 @@
+
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    path: 'loading',
+    loadChildren: () =>
+      import('./1-loading-page/loading/loading.module').then(
+        (m) => m.LoadingPageModule
+      ),
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+    path: 'page-d-arrivee',
+    loadChildren: () =>
+      import('./2-arrivee-page/page-d-arrivee/page-d-arrivee.module').then(
+        (m) => m.PageDArriveePageModule
+      ),
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule),
-    canActivate: [AuthGuard]
+    path: 'page-de-connexion',
+    loadChildren: () =>
+      import('./2-connexion-page/page-de-connexion/page-de-connexion.module').then(
+        (m) => m.PageDeConnexionPageModule
+      ),
   },
   {
-    path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    path: 'mdp-oublie',
+    loadChildren: () =>
+      import('./2-connexion-page/mdp-oublie/mdp-oublie.module').then(
+        (m) => m.MdpOubliePageModule
+      ),
   },
   {
-    path: 'mood-input',
-    loadChildren: () => import('./pages/mood-input/mood-input.module').then(m => m.MoodInputPageModule)
+    path: 'verification-email',
+    loadChildren: () =>
+      import('./2-connexion-page/verification-email/verification-email.module').then(
+        (m) => m.VerificationEmailPageModule
+      ),
   },
   {
-    path: 'thank-you',
-    loadChildren: () => import('./thank-you/thank-you.module').then(m => m.ThankYouPageModule)
-  }
+    path: 'signup-step-one',
+    loadChildren: () =>
+      import('./3-inscription-page/signup-step-one/signup-step-one.module').then(
+        (m) => m.SignupStepOnePageModule
+      ),
+  },
+  {
+    path: 'profil-employe',
+    loadChildren: () =>
+      import('./5-profil-employe/profil-employe.module').then(
+        (m) => m.ProfilEmployeModule
+      ),
+  },
+  { path: '', redirectTo: 'loading', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

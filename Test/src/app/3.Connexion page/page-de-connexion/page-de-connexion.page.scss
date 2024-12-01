@@ -1,0 +1,138 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 16px;
+    --background: #ffffff;
+   
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+   
+      .back-icon {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        font-size: 24px;
+        color: black;
+      }
+
+      .back-button{
+        color: black;
+      }
+
+   
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: black;
+        text-align: left;
+        margin-top: 50px;
+        margin-bottom: 40px;
+   
+        .wave {
+          margin-left: 8px;
+        }
+      }
+   
+      p {
+        margin-top: 8px;
+        color: #7d7d7d;
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+   
+    form {
+      width: 100%;
+      max-width: 400px;
+   
+      ion-item {
+        margin-bottom: 12px;
+        --background: white;
+        color: black;
+   
+        ion-label {
+          font-weight: bold;
+        }
+   
+        ion-icon {
+          cursor: pointer;
+          color: black;
+        }
+      }
+   
+      .remember-container {
+        display: flex;
+        align-items: center;
+        margin-top: -8px;
+   
+        ion-checkbox {
+            --color-checked: #007bff;
+            --border-radius: 50% !important;  /* Make the checkbox round */
+            --border-width: 2px;             /* Set the border width */
+        }
+   
+        ion-label {
+          font-size: 14px;
+        }
+      }
+   
+      .forgot-password {
+        text-align: center;
+        margin-bottom: 20px;
+   
+        a {
+          color: #007bff;
+          text-decoration: none;
+          font-size: 14px;
+        }
+      }
+   
+      .divider {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 20px 0;
+   
+        span {
+          flex: 1;
+          height: 1px;
+          background-color: #e0e0e0;
+        }
+   
+        p {
+          margin: 0 12px;
+          font-size: 14px;
+          color: #7d7d7d;
+        }
+      }
+   
+      .social-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+   
+        ion-button {
+      --background: black;
+      --color: #ffffff;
+      margin: 0 auto;
+      display: block;
+      border-radius: 8px;
+      align-items: center;
+        }
+      }
+   
+      .submit-button {
+        --background: #000;
+        --color: #fff;
+        font-weight: bold;
+        border-radius: 8px;
+        display: block;
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }

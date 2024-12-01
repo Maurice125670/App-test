@@ -1,0 +1,79 @@
+.forgot-password-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    --background:white;
+  
+    /* Back Icon */
+    .back-icon {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      font-size: 24px;
+      color: black;
+      cursor: pointer;
+    }
+  
+    /* Header Section */
+    .header {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 30px;
+  
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #000;
+        display: flex;
+        text-align: left;
+  
+        .key {
+          margin-left: 8px;
+          color: #ffcc00;
+          font-size: 24px;
+        }
+      }
+  
+      p {
+        color: #7d7d7d;
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+
+    ion-item{
+        --background: white;
+        --color:black;
+    }
+  
+    /* Support Message */
+    .support-message {
+      margin-top: 20px;
+      text-align: center;
+  
+      p {
+        font-size: 14px;
+        color: #7d7d7d;
+  
+        a {
+          color: #007bff;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      }
+    }
+  
+    /* Reset Button */
+    .reset-button {
+      margin-top: 40px;
+      --background: #000;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+  

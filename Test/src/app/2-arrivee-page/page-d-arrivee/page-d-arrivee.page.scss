@@ -1,0 +1,70 @@
+
+.page-d-arrivee {
+  text-align: center;
+
+  .image-container {
+    margin-top: 50px;
+  }
+
+  img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #000;
+  }
+
+  .buttons-container ion-button {
+    margin: 10px 0;
+    border-radius: 20px;
+    --background: #ffffff;
+    --color: #000;
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .google-btn {
+    --color: #db4437;
+  }
+
+  .facebook-btn {
+    --color: #4267B2;
+  }
+
+  .apple-btn {
+    --color: #000000;
+  }
+
+  .divider {
+    margin: 20px 0;
+    font-size: 14px;
+    color: #888;
+
+    span {
+      display: inline-block;
+      position: relative;
+      padding: 0 10px;
+    }
+  }
+
+  .default-btn {
+    --background: #000;
+    --color: #fff;
+    border-radius: 20px;
+  }
+
+  .signup-container {
+    margin-top: 20px;
+    font-size: 14px;
+
+    .signup-link {
+      color: #007BFF;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<ion-content class="ion-padding forgot-password-page">
+  <!-- Back Icon -->
+  <ion-icon name="arrow-back-outline" class="back-icon" (click)="goBack()"></ion-icon>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Mot passe oublié <span class="key"> 🔑</span></h1>
+    <p>Entrez votre email pour réinitialiser votre mot de passe.</p>
+  </div>
+
+  <!-- Email Input -->
+  <ion-item lines="full">
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input
+      type="email"
+      placeholder="Votre adresse email"
+      [(ngModel)]="email"
+      required
+    ></ion-input>
+  </ion-item>
+
+  <!-- Support Message -->
+  <div class="support-message">
+    <p>Des questions ? <a href="#">Notre support est disponible pour vous aider.</a></p>
+  </div>
+
+  <!-- Reset Button -->
+  <ion-button shape="round" class="reset-button" (click)="onReset()">
+    Réinitialiser
+  </ion-button>
+</ion-content>

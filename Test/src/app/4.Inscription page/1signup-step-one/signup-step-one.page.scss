@@ -1,0 +1,80 @@
+// Style global de la page
+:host {
+  --background: white;
+}
+
+ion-content {
+  --background: white;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: white;
+    --color: #333333;
+  }
+}
+
+.title {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: #333333;
+}
+
+.question {
+  text-align: center;
+  color: #666666;
+  margin: 10px 0 20px;
+  font-size: 1.2em;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  min-height: 300px; /* Réserve de l'espace pour l'image */
+  background-color: white;
+}
+
+.status-image {
+  width: 300px; /* Image plus grande */
+  height: 300px; /* Image plus grande */
+  object-fit: contain;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animation lors du changement d'image */
+.image-changing {
+  transform: scale(0.8);
+  opacity: 0.5;
+}
+
+/* Animation de retour à la normale */
+.status-image:not(.image-changing) {
+  transform: scale(1);
+  opacity: 1;
+}
+
+ion-button {
+  margin-top: 10px;
+  --border-radius: 10px;
+  
+  &[color="primary"] {
+    --background: #3880ff;
+    --color: white;
+    --background-hover: #3171e0;
+  }
+  
+  &[color="secondary"] {
+    --background: #3dc2ff;
+    --color: white;
+    --background-hover: #36abe0;
+  }
+  
+  &[color="tertiary"] {
+    --background: #5260ff;
+    --color: white;
+    --background-hover: #4854e0;
+  }
+}

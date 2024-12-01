@@ -1,0 +1,58 @@
+<ion-content class="ion-padding page-container">
+  <div class="header">
+    <ion-back-button class="back-button">←</ion-back-button>
+  <h1>Salut toi <span class="wave">👋</span></h1>
+  <p>Connectez-vous ! Votre bien-être au travail nous tient à cœur.</p>
+  </div>
+   
+    <form>
+  <ion-item>
+   <ion-label position="stacked">Email</ion-label>
+   <ion-input type="email" placeholder="Votre adresse email"></ion-input>
+  </ion-item>
+   
+  <ion-item>
+   <ion-label position="stacked">Mot de passe</ion-label>
+   <ion-input
+      [type]="showPassword ? 'text' : 'password'"
+      [(ngModel)]="password"
+      name="password"
+      required
+      placeholder="Votre mot de passe"
+    ></ion-input>
+    <ion-button fill="clear" slot="end" (click)="togglePasswordVisibility()">
+      <ion-icon [name]="showPassword ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-button>
+  </ion-item>
+   
+  <ion-item lines="none" class="remember-container">
+   <ion-checkbox slot="start"></ion-checkbox>
+   <ion-label>Se souvenir de moi</ion-label>
+  </ion-item>
+   
+      <div class="forgot-password">
+        <ion-text color="primary" class="forgot-password" (click)="onForgotPassword()">
+          Mots de passe oublié ?
+        </ion-text>
+  </div>
+   
+      <div class="divider">
+  <span></span>
+  <p>ou</p>
+  <span></span>
+  </div>
+   
+  <div class="social-buttons">
+   <ion-button fill="clear">
+    <ion-icon name="logo-google"></ion-icon>
+   </ion-button>
+   <ion-button fill="clear">
+    <ion-icon name="logo-apple"></ion-icon>
+   </ion-button>
+   <ion-button fill="clear">
+    <ion-icon name="logo-facebook"></ion-icon>
+   </ion-button>
+  </div>
+   <ion-button shape="round" class="submit-button">C'est parti !</ion-button>
+</form>
+</ion-content>

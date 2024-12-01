@@ -1,0 +1,108 @@
+<ion-content class="ion-padding">
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref=""></ion-back-button>
+  </ion-buttons>
+  <div class="progress-bar">
+    <div class="progress-fill"></div>
+  </div>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+<h1>On y est presque!</h1>
+   <!-- email -->
+  <ion-item>
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input
+      type="email"
+      [(ngModel)]="email"
+      name="email"
+      required
+      placeholder="Votre adresse mail"
+    ></ion-input>
+  </ion-item>
+  <!-- mdp -->
+
+  <ion-item>
+    <ion-label position="stacked">Mot de passe</ion-label>
+    <ion-input
+      [type]="showPassword ? 'text' : 'password'"
+      [(ngModel)]="password"
+      name="password"
+      required
+      placeholder="Votre mot de passe"
+    ></ion-input>
+    <ion-button fill="clear" slot="end" (click)="togglePasswordVisibility()">
+      <ion-icon [name]="showPassword ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- vérification mdp -->
+
+  <ion-item>
+    <ion-label position="stacked">Vérification</ion-label>
+    <ion-input
+      [type]="showPassword ? 'text' : 'password'"
+      [(ngModel)]="confirmPassword"
+      name="confirmPassword"
+      required
+      placeholder="Votre même mot de passe"
+    ></ion-input>
+    <ion-button fill="clear" slot="end" (click)="togglePasswordVisibility()">
+      <ion-icon [name]="showPassword ? 'eye-off' : 'eye'"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- conditions d'utilisations -->
+
+  <ion-item lines="none">
+    <ion-checkbox
+      slot="start"
+      [(ngModel)]="acceptTerms"
+      name="acceptTerms"
+    ></ion-checkbox>
+    <ion-label>
+      J'accepte les <a href="/terms" target="_blank">conditions d'utilisations</a>
+    </ion-label>
+  </ion-item>
+
+  <!-- remember me -->
+
+  <ion-item lines="none">
+    <ion-checkbox
+      slot="start"
+      [(ngModel)]="rememberMe"
+      name="rememberMe"
+    ></ion-checkbox>
+    <ion-label>Se souvenir de moi</ion-label>
+  </ion-item>
+
+  <!-- Bouton pour ouvrir la popup -->
+  <div class="center-container">
+   <ion-button class="center-button" shape="round" (click)="openPopup()">
+    S'inscrire
+   </ion-button>
+  </div>
+
+  
+    
+  <!--POPUP-->
+  
+    <!-- Popup modale -->
+    <ion-modal [isOpen]="isPopupOpen" (didDismiss)="closePopup()">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+
+            <ion-buttons slot="end">
+              <ion-button (click)="closePopup()">Fermer</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          
+          <h2>Félicitations</h2>
+          <p>C'est fait! Vous êtes inscrit(e)</p>
+          <ion-button shape="round">Se connecter</ion-button> <!--Renvoie sur la page de connexion-->
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+</form>
+</ion-content>

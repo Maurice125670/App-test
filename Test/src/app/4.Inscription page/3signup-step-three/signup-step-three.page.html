@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+  <h2 class="title">Je suis curieux...</h2>
+
+  <!-- Question -->
+  <p class="question">Qu'est-ce qui vous détend d'habitude ?</p>
+  <p class="description">Pour vous proposer les meilleures recommandations en fonction de vos habitudes.</p>
+
+  <!-- Cases de sélection d'activités -->
+  <ion-list>
+    <ion-item *ngFor="let activity of activities">
+      <ion-checkbox slot="start" [(ngModel)]="activity.selected"></ion-checkbox>
+      <ion-label>{{ activity.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Bouton Continuer -->
+  <ion-button expand="block" color="tertiary" (click)="continue()">Continuer</ion-button>
+</ion-content>

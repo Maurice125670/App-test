@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+  <div class="content-container">
+    <h2 class="title">Dites-nous qui vous êtes</h2>
+    <p class="question">Quel est votre statut ?</p>
+
+    <!-- Image du profil ou illustratif -->
+    <div class="image-container">
+      <img [src]="currentImage" 
+           [class.image-changing]="isImageChanging"
+           alt="Illustration de statut" 
+           class="status-image" />
+    </div>
+
+    <!-- Boutons pour sélectionner le statut -->
+    <ion-button expand="block" color="primary" (click)="selectStatus('employe')" [fill]="status === 'employe' ? 'solid' : 'outline'">
+      Je suis un employé
+    </ion-button>
+    <ion-button expand="block" color="secondary" (click)="selectStatus('superviseur')" [fill]="status === 'superviseur' ? 'solid' : 'outline'">
+      Je suis superviseur
+    </ion-button>
+
+    <!-- Bouton continuer -->
+    <ion-button expand="block" color="tertiary" (click)="continue()" [disabled]="!status">Continuer</ion-button>
+  </div>
+</ion-content>

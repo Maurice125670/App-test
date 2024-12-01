@@ -1,0 +1,82 @@
+<ion-content class="ion-padding">
+  <ion-buttons slot="start">
+    <ion-back-button icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+<!-- Title Section -->
+<div class="header-container">
+<h1 class="title">
+      Check tes mails 
+<ion-icon class="email-icon" name="mail-outline"></ion-icon>
+</h1>
+<p class="subtitle">Vérifier le code envoyé à votre adresse mail</p>
+</div>
+ 
+  <!-- OTP Input Section -->
+  
+  <div class="otp-container">
+    <ion-input
+        maxlength="1"
+        type="tel"
+        class="otp-box"
+        [(ngModel)]="otpValues[0]"
+        (ionInput)="onOtpInput($event, 0)"
+    ></ion-input>
+    <ion-input
+        maxlength="1"
+        type="tel"
+        class="otp-box"
+        [(ngModel)]="otpValues[1]"
+        (ionInput)="onOtpInput($event, 1)"
+    ></ion-input>
+    <ion-input
+        maxlength="1"
+        type="tel"
+        class="otp-box"
+        [(ngModel)]="otpValues[2]"
+        (ionInput)="onOtpInput($event, 2)"
+    ></ion-input>
+    <ion-input
+        maxlength="1"
+        type="tel"
+        class="otp-box"
+        [(ngModel)]="otpValues[3]"
+        (ionInput)="onOtpInput($event, 3)"
+    ></ion-input>
+    </div>
+ 
+  <!-- Resend Code -->
+<div class="resend-container">
+<a href="#" class="resend-link">Pas reçu de code ?</a>
+</div>
+ 
+  <!-- Confirm Button -->
+<ion-button expand="block" class="confirm-btn" shape="round">
+    Confirmer
+</ion-button>
+ 
+  <!-- Keypad Section -->
+<ion-grid class="keypad-grid">
+<ion-row>
+<ion-col><ion-button fill="clear">1</ion-button></ion-col>
+<ion-col><ion-button fill="clear">2</ion-button></ion-col>
+<ion-col><ion-button fill="clear">3</ion-button></ion-col>
+</ion-row>
+<ion-row>
+<ion-col><ion-button fill="clear">4</ion-button></ion-col>
+<ion-col><ion-button fill="clear">5</ion-button></ion-col>
+<ion-col><ion-button fill="clear">6</ion-button></ion-col>
+</ion-row>
+<ion-row>
+<ion-col><ion-button fill="clear">7</ion-button></ion-col>
+<ion-col><ion-button fill="clear">8</ion-button></ion-col>
+<ion-col><ion-button fill="clear">9</ion-button></ion-col>
+</ion-row>
+  <ion-row>
+   <ion-col><ion-button fill="clear">*</ion-button></ion-col>
+    <ion-col><ion-button fill="clear">0</ion-button></ion-col>
+     <ion-col><ion-button fill="clear">
+     <ion-icon name="backspace-outline"></ion-icon>
+</ion-button></ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

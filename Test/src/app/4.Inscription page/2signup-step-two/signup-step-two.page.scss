@@ -1,0 +1,146 @@
+// Style global de la page
+:host {
+  --background: white;
+}
+
+ion-content {
+  --background: white;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: white;
+    --color: #333333;
+  }
+}
+
+.title {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+  color: #333333;
+}
+
+ion-item {
+  --background: white;
+  margin: 20px 0;
+  --border-color: #e0e0e0;
+  --highlight-height: 2px;
+  --padding-top: 8px;
+  --padding-bottom: 8px;
+  
+  ion-label {
+    --color: #666666;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+
+  ion-input, ion-datetime {
+    --color: #333333;
+    font-size: 1.1em;
+    margin-top: 8px;
+  }
+
+  ion-icon {
+    color: #666666;
+    margin-right: 8px;
+  }
+}
+
+.gender-container {
+  margin: 30px 0;
+  
+  ion-label {
+    display: block;
+    text-align: center;
+    color: #666666;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+
+  .gender-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin: 0 20px;
+
+    ion-button {
+      flex: 1;
+      
+      ion-icon {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.birthdate-container {
+  margin: 20px 0;
+  padding: 0 16px;
+
+  > ion-label {
+    display: block;
+    color: #666666;
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  .date-inputs {
+    display: flex;
+    gap: 12px;
+    
+    ion-item {
+      flex: 1;
+      --background: white;
+      --border-color: #e0e0e0;
+      --border-radius: 8px;
+      --highlight-height: 2px;
+      margin: 0;
+
+      &::part(native) {
+        padding: 8px;
+      }
+
+      ion-label {
+        --color: #666666;
+        font-size: 0.9em;
+        opacity: 0.8;
+      }
+
+      ion-select {
+        --placeholder-opacity: 0.6;
+        font-size: 1em;
+        padding: 4px 0;
+        
+        &::part(text) {
+          color: #333333;
+        }
+
+        &::part(icon) {
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+}
+
+ion-button {
+  margin-top: 10px;
+  --border-radius: 10px;
+  
+  &[color="primary"] {
+    --background: #3880ff;
+    --color: white;
+    --background-hover: #3171e0;
+  }
+  
+  &[color="tertiary"] {
+    --background: #5260ff;
+    --color: white;
+    --background-hover: #4854e0;
+    margin-top: 30px;
+  }
+}
